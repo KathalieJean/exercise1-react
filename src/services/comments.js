@@ -7,17 +7,17 @@ export function getAllComments() {
   return [...comments];
 }
 
-function getCommentById(id) {
+export function getCommentById(id) {
   //get comment by id
   return comments.find((comment) => comment.id === id);
 }
 
-function getCommentsByPostId(postId) {
+export function getCommentsByPostId(postId) {
   //get comments by post id
   return comments.filter((comment) => comment.postId === postId);
 }
 
-function updateCommentBody(id, body) {
+export function updateCommentBody(id, body) {
   //update comment body
   comments = comments.map((comment) => {
     if (comment.id === id) {
@@ -32,12 +32,12 @@ function updateCommentBody(id, body) {
   });
 }
 
-function deleteCommentById(id) {
+export function deleteCommentById(id) {
   //delete comment by id
   return comments.filter((comment) => comment.id !== id)
 }
 
-function addComment(comment) {
+export function addComment(comment) {
   //add comment to comments array
   // use generateId function and pass comments array as the argument to generate a unique id.
   return comments.push(comment);
