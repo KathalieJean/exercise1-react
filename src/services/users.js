@@ -27,8 +27,16 @@ export function updateUser(id, userInfo) {
   });
 }
 
+function generateId(users) {
+  return users.length + 1;
+}
+
 export function addUser(userInfo) {
   // add user (userInfo is an object which can optionally contain properties of a user)
   // use generateId function and pass users array as the argument to generate a unique id.
-  return users.push(userInfo);
+  const newUser = {
+    id: generateId(users),
+    ...userInfo
+  };
+  users.push(newUser);
 }

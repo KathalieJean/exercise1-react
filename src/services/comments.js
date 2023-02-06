@@ -37,8 +37,16 @@ export function deleteCommentById(id) {
   return comments.filter((comment) => comment.id !== id)
 }
 
+function generateId(comments) {
+  return comments.length + 1;
+}
+
 export function addComment(comment) {
   //add comment to comments array
   // use generateId function and pass comments array as the argument to generate a unique id.
-  return comments.push(comment);
+  const newComment = {
+    id: generateId(comments),
+    text: comment,
+  };
+  comments.push(newComment);
 }
